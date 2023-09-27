@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="mode.value || 'over'" class="w-72">
+    <div class="flex flex-col gap-3 px-5">
+      <span class="example-spacer"></span>
+      <a mat-raised-button routerLink="/back-office">Home</a>
+      <a mat-raised-button routerLink="/back-office/user">User</a>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="flex justify-between">
+      <div class="flex gap-3 items-center">
+        <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>User Management</span>
+      </div>
+      <div class="flex gap-3">
+        <div>USER : {{this.userService.count}} | </div>
+        <button mat-raised-button color="warn">Logout</button>
+      </div>
+    </mat-toolbar>
+
+    <div class="px-5">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->
